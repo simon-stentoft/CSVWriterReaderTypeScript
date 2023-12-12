@@ -27,7 +27,6 @@ export class CSVWriter<T> {
 	}
 }
 
-
 function readCSVData(filename: string): void {
 	const readData = readFileSync(filename, {
 		encoding: "utf-8"
