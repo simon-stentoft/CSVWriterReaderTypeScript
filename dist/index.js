@@ -15,10 +15,21 @@ class CSVWriter {
     addRows(values) {
         let rows = values.map((v) => this.formatRow(v));
         this.csv += rows.join('\n');
-        console.log(this.csv);
+        //console.log(this.csv)
     }
     formatRow(value) {
         return this.columns.map((col) => value[col]).join(',');
     }
 }
 exports.CSVWriter = CSVWriter;
+function readCSVData(filename) {
+    const readData = (0, fs_1.readFileSync)(filename, {
+        encoding: "utf-8"
+    })
+        .split("\n")
+        .map((row) => {
+        return row.split(",");
+    });
+    console.log(readData);
+}
+readCSVData("data/payments.csv");

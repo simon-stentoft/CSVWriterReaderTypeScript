@@ -1,4 +1,4 @@
-import { appendFileSync } from "fs"
+import { appendFileSync, readFileSync } from "fs"
 
 export class CSVWriter<T> {
 	constructor(private columns: (keyof T)[]) {
@@ -19,7 +19,7 @@ export class CSVWriter<T> {
 
 		this.csv += rows.join('\n')
 
-		console.log(this.csv)
+		//console.log(this.csv)
 	}
 
 	private formatRow(value: T): string {
@@ -27,6 +27,17 @@ export class CSVWriter<T> {
 	}
 }
 
-class CSVReader {
-    
+
+function readCSVData(filename: string): void {
+	const readData = readFileSync(filename, {
+		encoding: "utf-8"
+	})
+	.split("\n")
+	.map((row: string): string[] => {
+		return row.split(",")
+	})
+	
+	console.log(readData)
 }
+
+readCSVData("data/payments.csv")
