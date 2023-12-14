@@ -7,4 +7,4 @@ paymentWriter.addRows([
     { id: 2, amount: 43, to: 'Lukas', notes: 'for web dev work' },
     { id: 3, amount: 23, to: 'Jakob', notes: 'for web dev work' },
 ]);
-paymentWriter.save('./data/payment.csv');
+paymentWriter.save('./data/paymentss.csv');

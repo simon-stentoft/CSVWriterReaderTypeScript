@@ -15,4 +15,4 @@ paymentWriter.addRows([
     { id: 3, amount: 23, to: 'Jakob', notes: 'for web dev work' },
 ])
 
-paymentWriter.save('./data/payment.csv')
+paymentWriter.save('./data/paymentss.csv')
