@@ -16,3 +16,5 @@ paymentWriter.addRows([
 ])
 
 paymentWriter.save('./data/paymentss.csv')
+
+

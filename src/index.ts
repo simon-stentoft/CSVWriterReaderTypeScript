@@ -5,9 +5,7 @@ export class CSVWriter<T> {
 	constructor(private columns: (keyof T)[]) {
 		this.csv = ''
 	}
-
 	private csv: string
-
 	save(filename: string): void {
 		if (!existsSync(filename)) {
 			this.csv = this.columns.join(',') + '\n' + this.csv
@@ -17,16 +15,10 @@ export class CSVWriter<T> {
 
 		console.log('file saved to', filename)
 	}
-
 	addRows(values: T[]): void {
-		
 		let rows = values.map((v) => this.formatRow(v))
-
 		this.csv += rows.join('\n') + '\n'
-
-		//console.log(this.csv)
 	}
-
 	private formatRow(value: T): string {
 		return this.columns.map((col) => value[col]).join(',')
 	}
@@ -43,8 +35,7 @@ function readCSVData(filename: string): void {
 		return row.split(",")
 	})
 	
-	//console.log(readData)
-	console.log('First 10 rows:', readData.slice(0, 10));
+	//console.log('First 10 rows:', readData.slice(0, 10));
 	console.log('Total rows:', readData.length);
 
 	const endTime = performance.now()
@@ -53,4 +44,4 @@ function readCSVData(filename: string): void {
 	console.log(`Elapsed time: ${elapsedTime} milliseconds`)
 }
 
-readCSVData("data/payment.csv")
+readCSVData("data/SampleCSVFile.csv")

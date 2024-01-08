@@ -18,7 +18,6 @@ class CSVWriter {
     addRows(values) {
         let rows = values.map((v) => this.formatRow(v));
         this.csv += rows.join('\n') + '\n';
-        //console.log(this.csv)
     }
     formatRow(value) {
         return this.columns.map((col) => value[col]).join(',');
@@ -34,11 +33,10 @@ function readCSVData(filename) {
         .map((row) => {
         return row.split(",");
     });
-    //console.log(readData)
-    console.log('First 10 rows:', readData.slice(0, 10));
+    //console.log('First 10 rows:', readData.slice(0, 10));
     console.log('Total rows:', readData.length);
     const endTime = performance.now();
     const elapsedTime = endTime - startTime;
     console.log(`Elapsed time: ${elapsedTime} milliseconds`);
 }
-readCSVData("data/payment.csv");
+readCSVData("data/SampleCSVFile.csv");
